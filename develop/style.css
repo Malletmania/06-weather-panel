@@ -1,0 +1,23 @@
+* {
+    text-align: center;
+    color: black;
+    border-radius: 0;
+}
+
+.banner {
+    text-align: center;
+    background-color: blue;
+    color: black;
+    border-radius: 0;
+  }
+
+  container-flex {
+      padding: 25px;
+      position: relative;
+      background-color: #fff;
+      margin: 25px;
+  }
+
+  .container {
+    flex-direction: row-reverse;
+  }
