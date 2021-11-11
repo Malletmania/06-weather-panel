@@ -21,3 +21,22 @@
   .container {
     flex-direction: row-reverse;
   }
+
+  .weatherData {
+    background-color: aqua;
+  }
+
+  .data-location {
+    display: block;
+    padding: 10px;
+    flex-wrap: wrap;
+  }
+  .panel {
+    display: block;
+    padding: 10px;
+    flex-wrap: wrap;
+  }
+
+  .panelCard {
+    background-color: blue;
+  }

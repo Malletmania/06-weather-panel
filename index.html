@@ -5,13 +5,14 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./style.css">
-    <script src="./script.js"></script>
+    
     <link
       rel="stylesheet"
       href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
     />
     <script type="text/javascript" src="https://www.unpkg.com/jquery@3.5.1/dist/jquery.js"></script>
     <script type="text/javascript" src="https://www.unpkg.com/moment@2.29.1/moment.js"></script>
+    <script src="./script.js"></script>
     <title>Weather Dashboard</title>
 </head>
 <body>
@@ -20,23 +21,27 @@
     </header>
 
 
-    <div class="col-3 card">
+    <div class="panel">
+        <div class="col-3 panelCard">
         <div class="data-location">
-            <h2>Sunday 10/3/2021</h2>
+            <h2 class="date"></h2>
             <p> <span style="color: green;">green</span> </p>
         </div>
         <div class="weatherData">
             <div class="data">
-                <h2 class="display-2">65</h2>
-                <p>cloudy</p>
+                <h2 class="display-2 temp"></h2>
+                <div class="weatherType"></div>
+                <p class="windSpeed"></p>
+                <p class="humidity"></p>
             </div>
         </div>
-    </div>
+        </div>
+        </div>
 
     <div id="content" class="col-3 container-flex">
         <div class="row">
             <div>
-                <form>
+                <form id="weatherSearch">
                     <label for="citySearch">Search for a city:</label>
                     <div class="form-now">
                         <input type="text" id="citySearch" class="form" name="city" value=""></input>

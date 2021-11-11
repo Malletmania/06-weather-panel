@@ -2,7 +2,8 @@ const ONE_MINUTE = 60;
 const ONE_HOUR = ONE_MINUTE * 60;
 const ONE_DAY = ONE_HOUR * 24;
 const cardtemplate = `
-<div class="col-3 card">
+<div class="panel">
+<div class="card">
 <div class="data-location">
     <h2 class="date"></h2>
     <p> <span style="color: green;">green</span> </p>
@@ -15,6 +16,7 @@ const cardtemplate = `
         <p class="humidity"></p>
     </div>
 </div>
+</div>
 </div>`
 
     function extractJSON(response) {
@@ -22,6 +24,7 @@ const cardtemplate = `
     }
 
     function transformDates (dates) {
+        console.log(dates)
         let results = []
         let candidateTimeStamp = Date.now()/1000
         for( let i = 0; i<dates.length; i++){
@@ -44,7 +47,7 @@ const cardtemplate = `
         $('#weatherContainer').empty()
         for (const date of dates) {
             const card = $(cardtemplate)
-            card.find('.date').text(moment(date.dta).format('LL'))
+            card.find('.date').text(moment(date.dt*1000).format('LL'))
             card.find('.windSpeed').text(`${date.wind.speed}MPH`)
             card.find('.temp').text(`${date.main.temp}F`)
             card.find('.humidity').text(`${date.main.humidity}%`)
@@ -56,10 +59,12 @@ const cardtemplate = `
             card.appendTo('#weatherContainer')
         };
 
-        // return fetch(url).then(extractJSON).then(function(data){
-        //     (transformDates(data.list))
-        // } )
     }
     getWeatherForCity('Berlin')
-
+    $(document).ready(function(){
+        $("#weatherSearch").on('submit', function(e) {
+            e.preventDefault()
+            getWeatherForCity($("#citySearch").val())
+        })
+    })
     
